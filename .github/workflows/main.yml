@@ -4,7 +4,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Install dependencies
         run: |
           sudo apt update
@@ -14,9 +14,10 @@ jobs:
         run: |
           export PATH=$PATH:$HOME/.local/bin
           buildozer --version
+          # यह कमांड APK बनाने की प्रक्रिया शुरू करेगा
           buildozer android debug
       - name: Upload APK
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: Sarkar-Gram-App
           path: bin/*.apk
